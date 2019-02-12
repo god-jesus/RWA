@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<RWA.Drzava>
-
+@{ 
+    ViewBag.Title = "Drzave";
+}
 
 <table class="table">
     <tr>
@@ -12,17 +14,17 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+
             <h3>@Html.DisplayFor(modelItem => item.Naziv)</h3>
-            <table>
                 @foreach (var grad in item.Grad)
                 {
                     <tr>
                         <td>
-                            @Html.ActionLink(grad.Naziv, "Gradovi", new {id = grad.Naziv }, null)
+                            @Html.ActionLink(grad.Naziv, "Gradovi", new { id = grad.Idgrad })
                         </td>
                     </tr>
                 }
-            </table>
+            
         </td>
     </tr>
 }

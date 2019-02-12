@@ -27,15 +27,6 @@ namespace RWA.Controllers
 
             return View();
         }
-        public ActionResult Drzave()
-        {
-            var _db = new AdventureWorksOBPContext();
-            var model = _db.Drzava.Select(r => new Drzava
-            {
-                Naziv = r.Naziv,
-                Grad = r.Grad
-            });
-            return View(model);
-        }
+       
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace RWA.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -25,6 +26,16 @@ namespace RWA.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult Drzave()
+        {
+            var _db = new AdventureWorksOBPContext();
+            var model = _db.Drzava.Select(r => new Drzava
+            {
+                Naziv = r.Naziv,
+                Grad = r.Grad
+            });
+            return View(model);
         }
     }
 }

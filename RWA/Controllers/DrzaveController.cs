@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace RWA.Controllers
 {
-    [Authorize]
     public class DrzaveController : Controller
     {
         AdventureWorksOBPContext _db = new AdventureWorksOBPContext();

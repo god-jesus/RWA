@@ -1,0 +1,64 @@
+﻿@model IEnumerable<RWA.Stavka>
+
+@{
+    ViewBag.Title = "Stavke";
+}
+
+<h2>Stavke</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kolicina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proizvod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CijenaPoKomadu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PopustUpostocima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UkupnaCijena)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Proizvod.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proizvod.Potkategorija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proizvod.Potkategorija.Kategorija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CijenaPoKomadu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PopustUpostocima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kolicina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UkupnaCijena)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
